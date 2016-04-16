@@ -30,14 +30,14 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.15.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^1.12.9"
   },
   "dependencies": {
     "@cycle/core": "^6.0.0",
-    "@cycle/dom": "^8.0.0",
+    "@cycle/dom": "^9.4.0",
     "@cycle/isolate": "^1.2.0",
-    "cycle-restart": "0.0.14",
+    "cycle-restart": "^0.0.14",
+    "express": "^4.13.4",
     "rx": "^4.0.7",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"

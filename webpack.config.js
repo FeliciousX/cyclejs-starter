@@ -1,8 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var validate = require('webpack-validator');
 
-module.exports = {
+var config = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
@@ -35,3 +36,5 @@ module.exports = {
     ]
   }
 };
+
+module.exports = validate(config);

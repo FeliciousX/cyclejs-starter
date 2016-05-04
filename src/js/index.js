@@ -1,5 +1,4 @@
-import {run} from '@cycle/core';
-import {rerunner, restartable} from 'cycle-restart';
+import {run} from '@cycle/xstream-run';
 
 // css
 import '../styles/app.css';
@@ -10,17 +9,7 @@ import {makeDOMDriver} from '@cycle/dom';
 import App from './components/App';
 
 const drivers = {
-  DOM: restartable(makeDOMDriver('#root'), {pauseSinksWhileReplaying: false})
+  DOM: makeDOMDriver('#root')
 };
 
-const rerun = rerunner( run );
-rerun( App, drivers );
-
-if (module.hot) {
-  module.hot.accept(`./components/App`, () => {
-    const app = require(`./components/App` ).default;
-    rerun( app, drivers );
-  });
-  module.hot.accept();
-}
-
+run( App, drivers );

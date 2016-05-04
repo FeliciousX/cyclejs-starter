@@ -1,4 +1,4 @@
-import {Observable} from 'rx';
+import xs from 'xstream';
 import {input} from '@cycle/dom';
 
 
@@ -10,12 +10,12 @@ function AdjectiveInput(sources) {
     .map(e => e.target.value)
     .startWith('');
 
-  const vTree$ = Observable.just(
-    input('#adjectiveInput', {
+  const vTree$ = xs.of(
+    input('#adjectiveInput', { attrs: {
       type: 'text',
       autofocus: true,
-      className: 'adjective-input'
-    })
+      class: 'adjective-input'
+    }})
   );
 
   const sinks = {

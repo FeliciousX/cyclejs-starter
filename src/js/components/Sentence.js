@@ -7,7 +7,7 @@ function Sentence(sources) {
 
   const vTree$ = adjectiveInputValue$
         .map(v => !v.length ? '...' : `${v}!`)
-        .map(v => h1({className: 'sentence'}, `Cycle is ${v}`));
+        .map(v => h1({ attrs: { class: 'sentence'}}, `Cycle is ${v}`));
 
   const sinks = {
     DOM: vTree$

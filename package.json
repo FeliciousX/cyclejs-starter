@@ -33,13 +33,12 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
-    "@cycle/core": "^6.0.0",
-    "@cycle/dom": "^9.4.0",
+    "@cycle/dom": "^10.0.0-rc11",
     "@cycle/isolate": "^1.2.0",
-    "cycle-restart": "^0.0.14",
+    "@cycle/xstream-run": "^1.0.1",
     "express": "^4.13.4",
-    "rx": "^4.0.7",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "xstream": "^2.2.1"
   }
 }

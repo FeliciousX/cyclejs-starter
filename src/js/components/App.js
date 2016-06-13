@@ -13,15 +13,13 @@ function App(sources) {
   const sentenceComponent = Sentence(sentenceSources);
   const sentenceVTree$ = sentenceComponent.DOM;
 
-  const vTree$ = xs.combine(
-    (inputVTree, sentenceVTree) =>
-      div('.app', [
-        img({ attrs: {src: '/images/cyclejs_logo.svg', width: 200}}),
-        sentenceVTree,
-        inputVTree
-      ]),
-    adjectiveInputVTree$,
-    sentenceVTree$
+  const vTree$ = xs.combine( adjectiveInputVTree$, sentenceVTree$ )
+  .map(([inputVTree, sentenceVTree]) =>
+    div('.app', [
+      img({ attrs: {src: '/images/cyclejs_logo.svg', width: 200}}),
+      sentenceVTree,
+      inputVTree
+    ])
   );
 
   const sinks = {

@@ -9,7 +9,8 @@ const history = supportsHistory() ? createHistory() : createHashHistory()
 
 const drivers = {
   DOM: makeDOMDriver('#root'),
-  router: makeRouterDriver(history, switchPath)
+  router: makeRouterDriver(history, switchPath),
+  preventDefault: event$ => event$.addListener({ next: event => event.preventDefault(), error: () => {}, complete: () => {} } )
 };
 
 run(Main, drivers);

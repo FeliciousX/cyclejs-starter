@@ -28,7 +28,7 @@ export default function Router(sources) {
     path: router.path(path)
   })));
 
-  const makeLink = (path, label) => a({props: {href: path}, style: {padding: '1em'}}, label);
+  const makeLink = (path, label) => a({attrs: {'data-route': path}, props: {href: path}, style: {padding: '1em'}}, label);
 
   const nav$ = xs.of(nav({style: {marginBottom: '1em'}}, [
     makeLink('/bmi', 'BMI'),
@@ -40,7 +40,15 @@ export default function Router(sources) {
   const vdom$ = xs.combine(nav$, view$)
     .map(([navDom, viewDom]) => div([navDom, viewDom]));
 
-  const sinks = merge(sources, {DOM: vdom$});
+  const click$ = sources.DOM.select( 'a' ).events( 'click' )
+  const router$ = click$
+    .map( e => e.target.dataset.route );
+
+  const sinks = {
+    DOM: vdom$,
+    router: router$,
+    preventDefault: click$
+  };
 
   return sinks;
 }

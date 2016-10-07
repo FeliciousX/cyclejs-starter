@@ -11,7 +11,7 @@ const intent = ( sources ) => ({
   inputValue$: sources.DOM.select('.input').events('input')
     .map(e => e.target.value)
     .filter(isNumber)
-    .map( value => ( state ) => Object.assign( {}, state, { value: value } ) )
+    .map( value => ( state ) => Object.assign( {}, state, { value: Number.parseInt( value ) } ) )
 })
 
 const model = ( actions ) => {
